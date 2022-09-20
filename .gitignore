@@ -1,4 +1,4 @@
 .vscode
-aarch64/dhrystone/*.o
-aarch64/dhrystone/*.elf
-aarch64/shared/*.o
+*.o
+*.elf
+*.dump
