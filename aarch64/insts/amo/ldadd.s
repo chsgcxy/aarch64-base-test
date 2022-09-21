@@ -61,12 +61,12 @@ bootcode:
                 sub	x4, x3, x2
 
                 str	x2, [x7]
-                str x3, [x7], #8
-                str x4, [x7], #16
-                ldadd x1, x8, [x6]
+                str x3, [x7]
+                str x4, [x7]
+                //ldadd x1, x8, [x6]
                 ldr	x2, [x7]
-                ldr x3, [x7], #8
-                ldr x4, [x7], #16
+                ldr x3, [x7]
+                ldr x4, [x7]
 
                 mov     x0, #0x13000000 // Tube address
                 adr     x1, message
@@ -89,7 +89,7 @@ wfi_spin:       wfi
 message:        .asciz "Hello 64-bit World!\n\n** TEST PASSED OK **\n"
 
 
-.section data
+.data
 .balign 4
 data_ld:
     .word 0x12345678
@@ -98,4 +98,3 @@ data_amo:
     .word 0x11111111
     .word 0x22222222
     .word 0x33333333
-.end
