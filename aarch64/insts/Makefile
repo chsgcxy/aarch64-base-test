@@ -4,8 +4,8 @@
 
 src_dir := .
 dstdir := .
-CPU = cortex-a53
-ARCH = armv8-a
+CPU = cortex-a76
+ARCH = armv8.5-a
 
 srcs :=
 include $(src_dir)/amo/Makefile.inc

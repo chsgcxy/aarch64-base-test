@@ -51,6 +51,23 @@ bootcode:
 
                 // CPU0:
                 // Write the text one byte at a time to the tube address
+                // test main
+                mov x0, #0x1
+                mov x1, #0x2
+                adr x6, data_ld
+                adr x7, data_amo
+                sub	x2, x1, x0
+                add	x3, x2, x0
+                sub	x4, x3, x2
+
+                str	x2, [x7]
+                str x3, [x7], #8
+                str x4, [x7], #16
+                ldadd x1, x8, [x6]
+                ldr	x2, [x7]
+                ldr x3, [x7], #8
+                ldr x4, [x7], #16
+
                 mov     x0, #0x13000000 // Tube address
                 adr     x1, message
 
@@ -70,4 +87,15 @@ wfi_spin:       wfi
 // can detect the end of the string.
                 .balign 4 
 message:        .asciz "Hello 64-bit World!\n\n** TEST PASSED OK **\n"
-                .end
+
+
+.section data
+.balign 4
+data_ld:
+    .word 0x12345678
+    .word 0x22222222
+data_amo:
+    .word 0x11111111
+    .word 0x22222222
+    .word 0x33333333
+.end
