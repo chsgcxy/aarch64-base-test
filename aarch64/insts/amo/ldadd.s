@@ -63,7 +63,7 @@ bootcode:
                 str	x2, [x7]
                 str x3, [x7]
                 str x4, [x7]
-                //ldadd x1, x8, [x6]
+                ldadd x1, x8, [x6]
                 ldr	x2, [x7]
                 ldr x3, [x7]
                 ldr x4, [x7]
@@ -90,7 +90,7 @@ message:        .asciz "Hello 64-bit World!\n\n** TEST PASSED OK **\n"
 
 
 .data
-.balign 4
+.balign 64, 0
 data_ld:
     .word 0x12345678
     .word 0x22222222
