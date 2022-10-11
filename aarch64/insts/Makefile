@@ -9,6 +9,7 @@ ARCH = armv8.5-a
 
 srcs :=
 include $(src_dir)/amo/Makefile.inc
+include $(src_dir)/simple/Makefile.inc
 
 default: all
 
@@ -30,11 +31,11 @@ $(objs): %.o: %.s
 	@echo " [ASM ] $<"
 	@$(AS64) $(ASM_OPTS_AARCH64) $< -o $@
 
-$(target): $(objs)
+$(target): %.elf: %.o
 	@echo " [LINK] $<"
 	@$(LD64) $(LINK_OPTS_NOBOOT_AARCH64) $^ -o $@
 
-$(dump): $(target)
+$(dump): %.dump: %.elf
 	@echo " [OBJDUMP] $<"
 	@$(OBJDUMP) --disassemble-all $< > $@
 
