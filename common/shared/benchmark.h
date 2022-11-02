@@ -36,7 +36,7 @@
 #define LOOPSTART
 #define LOOPEND
 
-#define ITERATIONS 20
+#define ITERATIONS 40
 
 // This function writes characters directly rather the use printf so that
 // it can work when printf is not available.

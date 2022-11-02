@@ -6,5 +6,7 @@
 #-----------------------------------------------------------------------------
 
 simple_files += depend_simple.s \
+loadstore_simple.s \
+exec_pip.s \
 
 srcs += $(addprefix simple/, $(simple_files))
